@@ -1,0 +1,29 @@
+import phonenumbers
+from phonenumbers import timezone, geocoder, carrier, name
+
+number = input("Enter number with country code : ")  # +8212345678910..
+                                                      
+
+phone = phonenumbers.parse(number)
+
+time = timezone.time_zones_for_number(phone)
+companyname = carrier.name_for_number(phone, "en")
+registration = geocoder.description_for_number(phone, "en")
+
+
+  
+print_all_values = lambda: print(f"\nPhone: {phone}, 
+                                   \nTime: {time}, 
+                                   \nCompany Name: {companyname}, 
+                                   \nRegistration: {registration}")
+
+# Execute the lambda function to print all the values
+print_all_values()
+
+(OR)
+
+
+print(phone)
+print(time)
+print(companyname)
+print(registration)
